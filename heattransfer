@@ -1,0 +1,160 @@
+// Definicja geometrii
+// ===================
+// Definicja punkt\u00f3w konturu P(x,y) : x=Px i y=Py
+// --------------------------------------
+//
+// 			gora=4
+// (A[3],B[3]) o------------------------o (A[2],B[2])
+// 		|			|
+// 		| 			|
+// 		| 			|
+// 		| 			|
+// 		|			|
+// lewy=1 	| 			| prawy=3; wyskosc
+// 		| 			|
+// 		| 			|
+// 		| 			|
+// 		| 			|
+// 		| 			|
+// 		| 			|
+// (A[0],B[0]) o------------------------o (A[1],B[1])
+// 			 dol=2; szerokosc
+//
+
+int dlugosc=2, wysokosc=2;
+real[int] A(4),  B(4);
+A[0]=0 ;	 B[0]=0 ;
+A[1]=dlugosc ;   B[1]=0 ;
+A[2]=dlugosc ;   B[2]=wysokosc ;
+A[3]=0 ;	 B[3]=wysokosc ;
+
+int ddlug=0.4, dwys=0.4;
+
+// Definicja konturu
+// -----------------------------------------------
+int lewy=1; // Numery brzeg\u00f3w konturu
+int dolny=2; //
+int prawy=3; //
+int gorny=4; //
+
+int d1l=1;
+int d1d=2;
+int d1p=3;
+int d1g=4;
+
+// Definicja brzegu okreslona funkcjami parametrycznymi x=f(t), y=g(t)
+// definicja zgodna z obiegiem w lewo
+
+border left(t=wysokosc,0) {x=0; y=t;label=lewy;}; //
+border bottom(t=0,dlugosc) {x=t; y=0;label=dolny;}; //
+border right(t=0,wysokosc) {x=dlugosc; y=t;label=prawy;};
+border top(t=dlugosc,0) {x=t; y=wysokosc;label=gorny;};
+
+border C21(t=0,0.2){ x=0.05+t; y=1.9;   label=d1g;}
+border C22(t=0,0.8){ x=0.25;   y=1.9-t; label=d1p;}
+border C23(t=0,0.2){ x=0.05+t; y=1.1;   label=d1d;}
+border C24(t=0,0.8){ x=0.05;   y=1.1+t; label=d1l;}
+
+border C31(t=0,0.2){ x=0.05+t; y=0.9;   label=d1g;}
+border C32(t=0,0.8){ x=0.25;   y=0.9-t; label=d1p;}
+border C33(t=0,0.2){ x=0.05+t; y=0.1;   label=d1d;}
+border C34(t=0,0.8){ x=0.05;   y=0.1+t; label=d1l;}
+
+
+border C41(t=0,0.2){ x=0.35+t; y=1.4;   label=d1g;}
+border C42(t=0,0.8){ x=0.55;   y=1.4-t; label=d1p;}
+border C43(t=0,0.2){ x=0.35+t; y=0.6;   label=d1d;}
+border C44(t=0,0.8){ x=0.35;   y=0.6+t; label=d1l;}
+
+border C51(t=0,0.2){ x=0.65+t; y=1.9;   label=d1g;}
+border C52(t=0,0.8){ x=0.85;   y=1.9-t; label=d1p;}
+border C53(t=0,0.2){ x=0.65+t; y=1.1;   label=d1d;}
+border C54(t=0,0.8){ x=0.65;   y=1.1+t; label=d1l;}
+
+border C61(t=0,0.2){ x=0.65+t; y=0.9;   label=d1g;}
+border C62(t=0,0.8){ x=0.85;   y=0.9-t; label=d1p;}
+border C63(t=0,0.2){ x=0.65+t; y=0.1;   label=d1d;}
+border C64(t=0,0.8){ x=0.65;   y=0.1+t; label=d1l;}
+
+border C71(t=0,0.2){ x=0.95+t; y=1.4;   label=d1g;}
+border C72(t=0,0.8){ x=1.15;   y=1.4-t; label=d1p;}
+border C73(t=0,0.2){ x=0.95+t; y=0.6;   label=d1d;}
+border C74(t=0,0.8){ x=0.95;   y=0.6+t; label=d1l;}
+
+border C81(t=0,0.2){ x=1.25+t; y=1.9;   label=d1g;}
+border C82(t=0,0.8){ x=1.45;   y=1.9-t; label=d1p;}
+border C83(t=0,0.2){ x=1.25+t; y=1.1;   label=d1d;}
+border C84(t=0,0.8){ x=1.25;   y=1.1+t; label=d1l;}
+
+border C91(t=0,0.2){ x=1.25+t; y=0.9;   label=d1g;}
+border C92(t=0,0.8){ x=1.45;   y=0.9-t; label=d1p;}
+border C93(t=0,0.2){ x=1.25+t; y=0.1;   label=d1d;}
+border C94(t=0,0.8){ x=1.25;   y=0.1+t; label=d1l;}
+
+border C11(t=0,0.2){ x=1.55+t; y=1.4;   label=d1g;}
+border C12(t=0,0.8){ x=1.75;   y=1.4-t; label=d1p;}
+border C13(t=0,0.2){ x=1.55+t; y=0.6;   label=d1d;}
+border C14(t=0,0.8){ x=1.55;   y=0.6+t; label=d1l;}
+
+border D11(t=0,0.1){ x=1.85+t; y=1.9;   label=d1g;}
+border D12(t=0,0.8){ x=1.95;   y=1.9-t; label=d1p;}
+border D13(t=0,0.1){ x=1.85+t; y=1.1;   label=d1d;}
+border D14(t=0,0.8){ x=1.85;   y=1.1+t; label=d1l;}
+
+border D21(t=0,0.1){ x=1.85+t; y=0.9;   label=d1g;}
+border D22(t=0,0.8){ x=1.95;   y=0.9-t; label=d1p;}
+border D23(t=0,0.1){ x=1.85+t; y=0.1;   label=d1d;}
+border D24(t=0,0.8){ x=1.85;   y=0.1+t; label=d1l;}
+
+// Generacja siatki
+// ==================================================
+// Definicja podzialu kraw\u00eadzi
+
+// --------------------------------------------------
+int Npe=10;
+int NpSzerokosc=10 ; // liczba podzialow krawedzi
+int NpDlugosc=10 ; //
+
+
+// Triangularyzacja
+// -----------------------------------------
+mesh siatka=buildmesh(left(NpSzerokosc)+top(NpDlugosc)
++right(NpSzerokosc)+bottom(NpDlugosc)
++C11(Npe)+C12(Npe)+C13(-Npe)+C14(Npe)
++C21(Npe)+C22(Npe)+C23(-Npe)+C24(Npe)
++C31(Npe)+C32(Npe)+C33(-Npe)+C34(Npe)
++C41(Npe)+C42(Npe)+C43(-Npe)+C44(Npe)
++C51(Npe)+C52(Npe)+C53(-Npe)+C54(Npe)
++C61(Npe)+C62(Npe)+C63(-Npe)+C64(Npe)
++C71(Npe)+C72(Npe)+C73(-Npe)+C74(Npe)
++C81(Npe)+C82(Npe)+C83(-Npe)+C84(Npe)
++C91(Npe)+C92(Npe)+C93(-Npe)+C94(Npe)
++D11(Npe)+D12(Npe)+D13(-Npe)+D14(Npe)
++D21(Npe)+D22(Npe)+D23(-Npe)+D24(Npe));
+
+// Kreslenie tr\u00f3jkat\u00f3w
+plot(siatka);
+
+fespace Vh(siatka,P1);
+//
+func f= 45;
+int k=4;
+Vh u,v;
+problem Poisson(u,v,solver=LU) =
+int2d(siatka)(k*dx(u)*dx(v) + k*dy(u)*dy(v))
+-int2d(siatka)( f*v  ) 
+
+- int1d(siatka,bottom)((0*v))
+- int1d(siatka,top)((0*v))
++ on(right,u=-10)
++ on(left,u=10)
+
+- int1d(siatka,C21)((0*v))
+- int1d(siatka,C22)((0*v))
+- int1d(siatka,C23)((0*v))
+- int1d(siatka,C24)((0*v));
+
+
+real cpu=clock();
+Poisson; 
+plot(u, value=true, fill=true, cmm="Rozklad temperatury");
